@@ -1,5 +1,5 @@
 #ifndef MAIN_H
-#define MAIN_H
+11;rgb:0000/0000/0000#define MAIN_H
 
 #include <limits.h>
 #include <stdarg.h>
@@ -38,13 +38,18 @@ typedef struct buffer_s
 /**
  * struct converter_s - A new type defining a converter struct.
  * @specifier: A character representing a conversion specifier.
- * @func: A pointer to a conversion function corresponding to specifier.
+ * @func: A pointer to a conversion function corresponding to the specifier
  */
+
+/**
+ * func - A function pointer to a conversion function
+ * @va_list: first param
+ * @char: string
+ */
+
 typedef struct converter_s
 {
 	unsigned char specifier;
-	unsigned int (*func)(va_list, buffer_t *,
-			unsigned char, int, int, unsigned char);
 } converter_t;
 
 /**
@@ -93,6 +98,14 @@ unsigned char handle_flags(const char *flags, char *index);
 unsigned char handle_length(const char *modifier, char *index);
 int handle_width(va_list args, const char *modifier, char *index);
 int handle_precision(va_list args, const char *modifier, char *index);
+
+/**
+ * handle_specifiers - handle
+ * @int: intergr
+ * @char: string /character
+ * Return: int
+ */
+
 unsigned int (*handle_specifiers(const char *specifier))(va_list, buffer_t *,
 		unsigned char, int, int, unsigned char);
 
